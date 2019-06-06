@@ -1,0 +1,221 @@
+*{
+  margin:0px;
+  padding: 0px;
+  list-style: none;
+}
+
+html, body, .wrapper {
+    height: 100%;
+}
+.wrapper{
+  /* position: relative; */
+  /* height: 100%; */
+  background-color: #354457;
+}
+
+.header{
+  height: 70px;
+}
+
+ .header img{
+  /* position: absolute;
+  display: inline-block; */
+  width: 30px;
+  height: 30px;
+  padding-left: 20px;
+  /* padding-top: 18px; */
+  vertical-align: middle;
+}
+
+ .header .logo span{
+
+  display: inline-block;
+  color: #b3bcc5;
+  line-height: 70px;
+  font-size: 14px;
+   /* padding-left: 70px; */
+}
+
+.left-menu{
+  position: absolute;
+  display: inline-block;
+  width: 200px;
+  height: calc(100% - 70px);
+  background-color:#4d5e70;
+  color: #b3bcc5;
+
+}
+.left-menu h5{
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  padding-left: 8px;
+
+}
+
+.left-menu li{
+  height: 40px;
+  line-height: 40px;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.left-menu li.active{
+  background-color: #ddd;
+  color: #354457;
+}
+
+.left-menu li:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #354457;
+}
+.right-content{
+  position: absolute;
+  min-width: 500px;
+  width: calc(100% - 200px);
+  margin-left: 200px;
+  width: calc(100% - 200px);;
+  height: calc(100% - 70px);
+  background-color: #eee;
+}
+
+.right-content table{
+  width: 100%;
+  table-layout: auto;
+  text-align: center;
+  cursor: pointer;
+
+}
+.right-content table thead{
+  background-color: #e3e8ee;
+  color: #646987;
+  font-size: 14px;
+}
+
+.right-content table .btn{
+  padding: 3px 10px;
+  outline: none;
+  border: none;
+}
+table tbody{
+  background-color: #fff;
+}
+table tr{
+  height: 30px;
+}
+.edit{
+  background-color: #5cb85c;
+}
+.del{
+  background-color: #c9302c;
+}
+
+.addStu{
+  font-size: 16px;
+  margin: 50px auto;
+  width: 400px
+}
+
+.addStu form label {
+  text-align: right;
+  width: 100px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.addStu form div{
+  margin: 10px 0;
+}
+
+.addStu form .sex{
+  width: 20px;
+}
+
+.addStu div input{
+  margin-right: 10px;
+  width: 200px;
+}
+
+.addStu .addBtn input{
+  width:90px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+}
+
+#female{
+  width: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.editStu {
+  width: 500px;
+  height: 450px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-left:-250px;
+  margin-top: -225px;
+  padding: 10px;
+}
+
+.editStuForm{
+  width: 400px;
+  margin: 0 auto;
+}
+
+.editStuForm label{
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+.editStuForm .sex{
+  width: 20px;
+}
+
+.editStuForm .addBtn input{
+  width:90px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+
+}
+
+.editStuForm  div{
+  margin-top: 10px;
+}
+
+.editStuForm div input{
+  /* margin-right: 10px; */
+  width: 200px;
+}
+
+.btn {
+  color: white;
+}
+
+._editStu {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hidden{
+  display: none;
+}
