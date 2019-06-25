@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="window=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+  <style>
+    #demo {
+      position:absolute;
+      top:100px;
+      left:100px;
+      width:100px;
+      height:100px;
+      background:orange;
+    }
+  </style>
+  <body>
+    <div id="demo"></div>
+
+    <script>
+
+      var oDate = new Date();
+      oDate.setDate(oDate.getDate() + 3);
+      console.log(oDate);
+
+      // document.cookie = 'age=18;max-age=1000';
+      // document.cookie = 'name=aimee;expires=' + oDate;
+      // document.cookie = 'age=19;max-age=1000';
+      // document.cookie = 'school=duyi;expires=' + oDate;
+
+
+      //取消
+    //  document.cookie = 'age=19;max-age=-1';
+
+      //或者 设置 oDate.setDate(oData.getDate() - 3);
+
+      var manageCookie= {
+        setCookie:function(name, value, time){
+          document.cookie = name + '=' + value + ';max-age=' + time;
+          return this;
+        },
+        removeCookie:function(name){
+          return this.setCookie(name, '', -1);
+        },
+        getCookie:function (name, callback){
+          var allCookieArr = document.cookie.split('; ');
+          for(var i = 0; i<allCookieArr.length; i++){
+            var itemCookieArr = allCookieArr[i].split('=');
+            if(itemCookieArr[0] == name){
+              callback(itemCookieArr[1]);
+              return this;
+            }
+          }
+          callback(undefined);
+          return this;
+        }
+      }
+
+      var oDemo = document.getElementById('demo');
+
+      var drag = {
+      //  this.clicked = false;
+        // var startX = 0;
+        // var startY = 0;
+        init:function(dom){
+          this.dom = dom;
+          this.bindEvent();
+          var _this =  this;
+          manageCookie.getCookie('newTop', function(data){
+            _this.dom.style.top = data + 'px';
+          }).getCookie('newLeft', function(data){
+            _this.dom.style.left = data + 'px';
+          });
+        },
+        bindEvent: function(){
+          this.dom.onmousedown = this.mouseDown.bind(this);
+        },
+        mouseDown: function(e){
+          document.onmousemove = this.mouseMove.bind(this);
+          document.onmouseup = this.mouseUp.bind(this);
+
+          this.startX = e.clientX - this.dom.offsetLeft;
+          this.startY = e.clientY - this.dom.offsetTop;
+        },
+        mouseMove:function(e){
+          this.newX  = e.clientX - this.startX;
+          this.newY = e.clientY - this.startY;
+
+           this.dom.style.top = this.newY + "px";
+           this.dom.style.left = this.newX + "px";
+        },
+        mouseUp:function(){
+          document.onmousemove = null;
+          document.onmouseup = null;
+          manageCookie.setCookie('newTop', this.newY, 10000).setCookie('newLeft', this.newX, 10000);
+        }
+
+      }
+      drag.init(oDemo);
+
+
+      // manageCookie
+      //   .setCookie('color', 'orange', 10000)
+      //   .setCookie('teger1', 'aimee', 20000)
+      //   .setCookie('age', '18', 1000)
+      //   .removeCookie('teater');
+
+
+    </script>
+
+  </body>
+</html>
