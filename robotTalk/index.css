@@ -1,0 +1,139 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+html, body{
+  height: 100%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+.wrapper{
+  width: 600px;
+ height: 100%;
+  border: 1px solid #eee;
+  margin: 0 auto;
+  background-color: #eee;
+  position: relative;
+}
+
+.wrapper .name{
+  text-align: center;
+  background-color: grey;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+}
+
+.input-content{
+  height: 50px;
+  line-height: 50px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.wrapper .content{
+  height: calc(100% - 40px - 50px);
+  overflow: scroll;
+}
+
+.avitor{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  vertical-align: middle;
+    display: inline-block;
+}
+.mine .avitor{
+  background-image: url('img/3.png');
+  float: right;
+}
+
+.robot .avitor{
+  background-image:url('img/dog1.jpg');
+  float: left;
+}
+.text{
+  display: inline-block;
+  padding: 5px;
+  margin: 0 10px;
+  position: relative;
+  max-width: 250px;
+}
+
+.mine{
+  float: right;
+  margin: 5px 10px;
+  width: 100%;
+}
+.robot{
+  float: left;
+  width: 100%;
+}
+
+.mine .text {
+    background-color: greenyellow;
+    float: right;
+}
+.robot .text {
+    background-color: #fff;
+}
+.mine .text::after{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  right: -20px;
+  border: 10px solid transparent;
+  border-left-color: greenyellow;
+}
+
+.robot .text::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 10px solid transparent;
+    border-right-color: #fff;
+    left: -20px;
+    /* top: 0; */
+    top: 5px;
+    /* margin-top: -10px; */
+}
+
+.input-content{
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  line-height: 50px;
+  text-align: center;
+}
+
+#inp{
+  width: 500px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  outline:none;
+  border: none;
+}
+
+.input-content #submit{
+  font-size:16px;
+  padding: 3px 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.input-content #submit:hover{
+  background-color: #333;
+    color: #fff;
+}
