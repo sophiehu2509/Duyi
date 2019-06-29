@@ -7,10 +7,13 @@ function init(){
 function bindEvent(){
   $('#submit').click(function(){
     var val = $('#inp').val();
-    if(val){
-      rendDom('mine', val);
-      getData(val);
-    }
+
+      if(val){
+        rendDom('mine', val);
+        getData(val);
+        $('#inp').val("")
+      }
+
   })
 
   $('#inp').keyup(function(e){
