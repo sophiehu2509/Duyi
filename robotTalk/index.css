@@ -64,6 +64,7 @@ html, body{
   margin: 0 10px;
   position: relative;
   max-width: 250px;
+  word-wrap: break-word; //单词强制换行
 }
 
 .mine{

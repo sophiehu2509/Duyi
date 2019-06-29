@@ -29,7 +29,7 @@ function rendDom(name, val){
       <div class="text">' + val + '</div>\
     </div>';
   $('.content').append($(content));
-  $('.content').scrollTop($('.content').height());
+  $('.content').scrollTop($('.content')[0].scrollHeight - $('.content')[0].clientHeight);
 
 }
 
