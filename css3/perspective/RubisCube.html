@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    :root,
+    body {
+      height: 100%;
+    }
+
+    body {
+      perspective: 2000px;
+      transform-style: perserve-3d;
+    }
+
+    @keyframes run {
+      0% {
+        transform: translate(-50%, -50%) rotatey(0deg);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotatey(360deg);
+      }
+    }
+
+    div.wrapper {
+      position: absolute;
+      left: calc(50%);
+      top: calc(50%);
+      width: 300px;
+      height: 300px;
+      background-size: cover transform: translate(-50%, -50%);
+      transform-style: preserve-3d;
+      animation: run 10s linear infinite;
+    }
+
+    img {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      backface-visibility: hidden;
+    }
+
+    img:nth-of-type(1) {
+      transform: rotatey(90deg) translatez(150px);
+    }
+
+    img:nth-of-type(2) {
+      transform: rotatey(180deg) translatez(150px);
+    }
+
+    img:nth-of-type(3) {
+      transform: rotatey(270deg) translatez(150px);
+    }
+
+    img:nth-of-type(4) {
+      transform: rotatey(360deg) translatez(150px);
+    }
+
+    img:nth-of-type(5) {
+      transform: rotatex(90deg) translatez(150px);
+    }
+
+    img:nth-of-type(6) {
+      transform: rotatex(90deg) translatez(-150px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <img src="1.jpg" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
+    <img src="4.jpg" alt="">
+    <img src="5.jpg" alt="">
+    <img src="6.jpg" alt="">
+  </div>
+
+  <script>
+    document.body.onmousemove = function(e) {
+      this.style.perspectiveOrigin = '' + e.pageX + 'px ' + e.pageY + "PX";
+    }
+  </script>
+</body>
+
+</html>
