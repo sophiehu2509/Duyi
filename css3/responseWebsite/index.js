@@ -1,7 +1,7 @@
 init();
 function init(){
   bindEvent();
-  //swiper();
+ swiper();
 }
 function bindEvent(){
   $('.btn').hover(function(){
@@ -13,14 +13,13 @@ function bindEvent(){
     }
   });
 
-  $('.content .text p').hover(function(){
-     $('.content .text p').attr('opacity', '1');
-  })
+
+
 }
 
-// function swiper(){
-//   $('#swiper').sliderImg({
-//     image: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
-//         href: ['#', '#', '#']
-//   })
-// }
+function swiper(){
+  $('#swiper').sliderImg({
+    image: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
+        href: ['#', '#', '#']
+  })
+}
