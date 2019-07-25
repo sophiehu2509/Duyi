@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        html, body{
+            width:100%;
+            height: 100%;
+        }
+        #myCanvas{
+        
+            background-color:#000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var circleArr = [];
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function Circle(x, y){
+            this.x = x;
+            this.y = y;
+            this.color = 'rgb('+ random(0, 256) + ',' + random(0, 256) + ',' + random(0, 256) + ')';
+            this.a = 1;
+            this.vx = (Math.random() - 0.5)* 3;
+            this.vy = (Math.random() - 0.5)* 3;
+            this.render();
+           
+        }
+
+        function random(min, max){
+            return min + Math.random() * (max - min);
+        }
+        Circle.prototype = {
+            render: function(){
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.globalCompositeOperation = 'lighter';
+                ctx.globalAlpha = this.a;
+                ctx.arc(this.x, this.y, 30, 0, Math.PI * 2, 0);
+                ctx.fill();
+                ctx.closePath();
+                this.update();
+            },
+            update:function(){
+                this.x += this.vx;
+                this.y += this.vy;
+                this.a *= 0.98;
+            }
+   
+        }
+
+        function init(){
+
+            canvas.addEventListener('mousemove', function(e){
+                mouseDown(e);
+            });
+        }
+
+        function mouseDown(e){
+            var x = e.clientX;
+            var y = e.clientY;
+            
+
+            var circle = new Circle(x, y);
+
+            circleArr.push(circle);
+
+        }
+        init();
+        var time;
+        function render (){
+           
+            if(circleArr.length < 1){
+                clearTimeout(time);
+            } 
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for(var i = 0; i<circleArr.length; i++){
+                    circleArr[i].render();
+                    if(circleArr[i].a < 0.05){
+                        circleArr.splice(i,1);
+                    }
+                }
+           
+            time = setTimeout(function(){
+                render();
+            }, 17);
+
+        }
+        render();
+    </script>
+</body>
+</html>
