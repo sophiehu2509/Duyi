@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #myCanvas{
+            border:1px solid black;
+            background-repeat: none;
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width = '500px' height = '500px'></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+     
+        function init(){
+            ctx.beginPath();
+            ctx.fillStyle= '#ccc';
+            ctx.fillRect(0,0,500,500);
+            ctx.closePath();
+            var img = new Image();
+            img.src = './img/pic'+ Math.floor(Math.random()*10) + '.jpg';
+            img.onload = function(){
+                canvas.style.backgroundImage= 'url(' + img.src + ')';
+                ctx.globalCompositeOperation = "destination-out";
+                canvas.addEventListener('mousedown', downFun, false);
+                
+            }
+        }
+        init();
+        var oldX, oldY, newX, newY;
+        function downFun(e){
+            oldX = e.clientX;
+            oldY = e.clientY;
+
+            canvas.addEventListener('mousemove', moveFun, false);
+            canvas.addEventListener('mouseup', upFun, false);
+           
+        }
+
+        function moveFun(e){
+            newX = e.clientX;
+            newY = e.clientY;
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'red';
+            ctx.moveTo(oldX, oldY);
+            ctx.lineTo(newX, newY);
+            ctx.lineWidth = 60;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+            ctx.closePath();
+
+            oldX = newX;
+            oldY = newY;
+        }
+
+        function upFun(){
+            canvas.removeEventListener('mousemove', moveFun, false);
+            canvas.removeEventListener('mouseup', upFun, false);
+            clearAll();
+        }
+
+        function clearAll(){
+            var info = ctx.getImageData(0, 0, 500, 500);
+
+            console.log(info);
+            var num = 0;
+            var data = info.data;
+            for(var i = 0; i<data.length; i += 4){
+                if(data[i] == 0){
+                    num ++;
+                }
+            }
+
+            if(num > data.length/4 * 0.7){
+                ctx.clearRect(0, 0, 500, 500);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
