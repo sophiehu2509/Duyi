@@ -1,0 +1,47 @@
+
+//@c 后面的 #000 为默认值
+// .border(@width, @c:#000){
+//     border-top:@width solid @c;
+//     border-bottom:@width solid @c;
+
+// }
+
+// *{
+//     margin:0;
+//     padding:0;
+//     list-style:none;
+//     text-decoration:none;
+//     body{
+//         background-color:#ccc;
+//         .wrapper{
+//             position: relative;
+//             width:500px;
+//             height:500px;
+//             margin:200px auto;
+//             // border:1px solid #000;
+//             .border(1px, #000);
+//             .box{
+//                 position: absolute;
+//                 width:200px;
+//                 height:200px;
+//                 top:50%;
+//                 left:50%;
+//                 margin-top:-100px;
+//                 margin-left:-100px;
+//                 .border(3px, red);
+//             }
+
+//         }
+//     }
+// }
+
+
+@import './trangle.less';
+.wrapper{
+    width:200px;
+    height: 200px;
+    margin:300px auto;
+    .box{
+        .trangle(B);
+    }
+}
