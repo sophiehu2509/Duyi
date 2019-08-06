@@ -1,0 +1,17 @@
+body{
+    background-color:#333;
+}
+div{
+    width:300px;
+    height: 300px;
+    border:1px solid red;
+}
+
+a{
+    font-size:40px;
+    color:blue;
+}
+
+h1{
+    color:red;
+}
