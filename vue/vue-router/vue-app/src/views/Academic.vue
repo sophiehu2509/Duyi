@@ -1,9 +1,9 @@
 <template>
-
+<!-- 动态路由要用name 不能用 path 看下面的:to -->
       <ul class="acedemic">
           <router-link  
           tag='li'
-          :to="{name: 'question', params:{id: item.questionId}}"
+          :to="{name: 'question', params:{id: item.questionId}}" 
           v-for="item in questionList" 
           :key="item.title">{{ item.title }}
           </router-link>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
     beforeRouteEnter(to, from, next){
         //不可使用this 因为此时路由还没进入 还没有this

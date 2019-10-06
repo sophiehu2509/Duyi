@@ -16,16 +16,23 @@ export default new Router({
     {
       path:'/Home',
       name:'home',
-      component:Home
+      component:Home,
+      //路由的独享守卫
+      beforeEnter(to, from, next){
+        next();
+      }
     },
     {
       path:'/learn',
       name:'learn',
-      component:() => import('./views/Learn')
+      component:() => import('_v/Learn')
     },
     {
       path:'/student',
       name:'student',
+      meta:{
+        login:true
+      },
       component:() => import('./views/Student')
     },
     {
@@ -36,6 +43,9 @@ export default new Router({
     {
       path:'/community',
       name:'community',
+      meta:{
+        login:true
+      },
       component:() => import('./views/Community'),
       //重定向 转到这个页时的 默认选项
       redirect:'/community/academic',  
@@ -62,6 +72,11 @@ export default new Router({
       path:'/question/:id',
       name:'question',
       component:() => import('./views/Question')
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:() => import('./views/Login')
     },
     {
       path:'/NotFound',
