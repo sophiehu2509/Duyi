@@ -1,2 +1,3 @@
-# Start-React
+# run npm install 
+# run npm start 
  
