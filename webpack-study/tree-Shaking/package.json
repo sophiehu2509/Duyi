@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "glob-all": "^3.1.0",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "webpack-deep-scope-plugin": "^1.6.2"
   }
 }
