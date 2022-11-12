@@ -18,7 +18,7 @@
     "purifycss-webpack": "^0.7.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "glob-all": "^3.1.0",
